@@ -16,6 +16,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "dev:ssr": "ng serve",
+    "build:ssr": "ng build && ng run angular-jest-starter:server:production",
+    "serve:ssr": "node dist/angular-jest-starter/server/server.mjs",
+    "prerender": "ng run angular-jest-starter:prerender",
     "watch": "ng build --watch --configuration development",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
@@ -60,3 +64,5 @@
     "typescript": "~5.9.2"
   }
 }
+
+
