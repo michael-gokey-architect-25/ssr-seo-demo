@@ -1,11 +1,197 @@
 <!-- src/app/app.component.html -->
-<mat-toolbar color="primary">
-  <span>{{ title }}</span>
-  <span class="spacer"></span>
-  <a mat-button routerLink="/hello" routerLinkActive="active">Hello</a>
-  <a mat-button routerLink="/users" routerLinkActive="active">Users</a>
-</mat-toolbar>
+<!-- 
+  /**
+  * App Component Template
+  * TEACHING POINT: Template Structure
+  * Standard layout pattern uses semantic HTML5 elements:
+  * - <header> with navigation (mat-toolbar)
+  * - <main> with router-outlet for page content
+  * - <footer> with site info
+  * This gives us:
+  * - Consistent navigation across all pages
+  * - Semantic HTML (good for SEO and accessibility)
+  * - Responsive layout
+  * - Accessibility (screen readers)
+  * - Better SEO (search engines understand structure)
+  *  - Cleaner code (self-documenting)
+  *  - Easier to style
+  */ 
+ -->
 
-<div class="content">
+
+ <!--
+  TEACHING: Angular Material Toolbar, mat-toolbar provides:
+  - Pre-styled header bar
+  - Elevation (shadow) for depth
+  - Color theming (primary, accent, warn)
+  - Responsive by default
+  * color="primary" applies the primary theme color
+-->
+<header>
+  <mat-toolbar color="primary" class="app-toolbar">
+    <!--
+      TEACHING: Site Title/Logo
+      The home link (routerLink="/") should be prominent.
+      Typically a logo, but we use text for simplicity.
+      class="site-title" for custom styling
+    -->
+    <a routerLink="/" class="site-title">
+      <!-- 
+        TEACHING: mat-icon
+        Material icons provide consistent iconography.
+        Icon names from: https://fonts.google.com/icons
+        Use 'code' icon to represent development/tech
+      -->
+      <mat-icon>code</mat-icon>
+      <span>{{ title }}</span>
+    </a>
+
+    <!--
+      TEACHING: Spacer
+      Flexbox trick to push navigation to the right.
+      flex: 1 makes it grow to fill available space.
+    -->
+    <span class="spacer"></span>
+
+    <!--
+      TEACHING: Navigation Links
+      mat-button provides Material Design button styling.
+      routerLink enables client-side navigation (no page reload).
+      routerLinkActive adds CSS class when route is active.
+      Navigation structure:
+      - Home (/)
+      - Users (/users)
+      - About (/about)
+    -->
+    <nav class="nav-links">
+      <!--
+        TEACHING: routerLinkActive
+        Automatically adds 'active' class when route matches.
+        Allows styling of active navigation items.
+        ariaCurrentWhenActive="page" sets aria-current for accessibility.
+        Screen readers announce "current page" when on this link.
+      -->
+      <a 
+        mat-button 
+        routerLink="/" 
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+        ariaCurrentWhenActive="page"
+        >
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+
+      <a 
+        mat-button 
+        routerLink="/users" 
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >
+        <mat-icon>people</mat-icon>
+        <span>Users</span>
+      </a>
+
+      <a 
+        mat-button 
+        routerLink="/about" 
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >
+        <mat-icon>info</mat-icon>
+        <span>About</span>
+      </a>
+    </nav>
+  </mat-toolbar>
+</header>
+
+
+
+
+
+
+<!--
+  TEACHING: Main Content Container
+  <main> element contains the primary content.
+  role="main" reinforces semantic meaning for screen readers.
+  class="main-container" provides consistent padding/layout.
+-->
+<main role="main" class="main-container">
   <router-outlet></router-outlet>
-</div>
+    <!--
+    TEACHING: Router Outlet
+    This is where Angular renders the current route's component.
+    When user navigates:
+    / → HomeComponent renders here
+    /users → UserListComponent renders here
+    /users/1 → UserDetailComponent renders here
+    /about → AboutComponent renders here
+    The outlet is replaced, but header/footer stay constant.
+    This is called "nested routing" or "child routes".
+  -->
+</main>
+
+
+
+
+
+
+
+<!--
+  TEACHING: Footer Best Practices, which typically contain:
+  - Copyright notice
+  - Links to legal pages (privacy, terms)
+  - Social media links
+  - Contact information
+  SEO benefits:
+  - Consistent sitewide links
+  - Copyright establishes ownership
+  - Contact info (with proper markup) helps local SEO
+-->
+<footer class="app-footer">
+  <div class="footer-content">
+    <!--
+      TEACHING: Copyright Notice
+      &copy; is HTML entity for ©
+      new Date().getFullYear() gets current year dynamically
+      But we can't use JavaScript in template without interpolation!
+      So we use a simple static year or add a getter in component.
+      In production, make it dynamic.
+    -->
+    <p class="copyright">
+      &copy; 2025 Angular SSR Demo. Built with Angular 20.
+    </p>
+
+    <!--
+      TEACHING: Footer Links
+      Important pages that should be accessible from everywhere.
+      Common footer links:
+      - Privacy Policy
+      - Terms of Service
+      - Contact
+      - About
+      - Sitemap
+      I kept it simple for this demo.
+    -->
+    <div class="footer-links">
+      <a routerLink="/about" mat-button>About</a>
+      <a href="https://github.com" target="_blank" rel="noopener" mat-button>
+        <mat-icon>code</mat-icon>
+        <span>GitHub</span>
+      </a>
+    </div>
+
+    <!--
+      TEACHING: Technology Stack Badge
+      Shows technologies used. Good for:
+      - Educational purposes
+      - Developer recruitment
+      - Transparency
+      In production, you would remove this. 
+    -->
+    <p class="tech-stack">
+      <mat-icon class="tech-icon">code</mat-icon>
+      Angular SSR | TypeScript | Material Design
+    </p>
+  </div>
+</footer>

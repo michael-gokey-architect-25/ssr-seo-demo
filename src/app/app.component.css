@@ -1,7 +1,329 @@
 /* src/app/app.component.css */
-.spacer {
-  flex: 1 1 auto;
+/* ==========================================================================
+   App Component Styles   
+   TEACHING POINT: Component-Scoped Styles
+   Styles in component CSS files are scoped to that component only.
+   They won't affect other components (unless you use ::ng-deep).
+   Benefits:
+   - No CSS conflicts
+   - Easier to maintain
+   - Can use simple selectors
+   ========================================================================== */
+
+/* I totaly swiped this style, look and feel, to use here. Good developers reuse whenever possable */
+
+/*
+  TEACHING: Flexbox Layout
+  We use flexbox to create a sticky footer layout:
+  - Display: flex with column direction
+  - Min-height: 100vh (full viewport height)
+  - Main content grows to fill space (flex: 1)
+  - Footer stays at bottom
+*/
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.content {
-  padding: 1rem;
+
+
+
+
+/*
+  TEACHING: Toolbar Customization
+  Material toolbar comes pre-styled, but we can customize:
+  - Height
+  - Padding
+  - Shadow
+  - Colors (via theme)
+*/
+.app-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/*
+  TEACHING: Site Title / Logo Link
+  Remove default link styling.
+  Make it stand out as the brand/home link.
+*/
+.site-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.site-title:hover {
+  opacity: 0.8;
+}
+.site-title mat-icon {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+
+
+/*
+  TEACHING: Flexbox Spacer
+  This pushes navigation to the right side.
+  flex: 1 makes it grow to fill available space.
+  Layout becomes:
+  [Logo] [----spacer----] [Nav Links]
+*/
+.spacer {
+  flex: 1;
+}
+
+
+
+/*
+  TEACHING: Nav Container
+  Group navigation links.
+  Use gap for consistent spacing between buttons.
+*/
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/*
+  TEACHING: Navigation Button Styling
+  mat-button provides base styling.
+  We add custom styles for:
+  - Icon alignment
+  - Hover effects
+  - Active state
+*/
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+.nav-links mat-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+
+
+/*
+  TEACHING: Active Link Styling
+  The 'active' class is added by routerLinkActive directive.
+  Style it to show user which page they're on.
+  Common approaches:
+  - Underline
+  - Bold text
+  - Background color
+  - Border bottom
+*/
+.nav-links a.active {
+  font-weight: 600;
+  border-bottom: 2px solid currentColor;
+}
+
+
+
+
+/*
+  TEACHING: Content Container
+  flex: 1 makes main content grow to fill available space.
+  This pushes footer to bottom even on short pages.
+  Padding provides breathing room around content.
+  Max-width prevents content from becoming too wide on large screens.
+  margin: 0 auto centers the content.
+*/
+.main-container {
+  flex: 1;
+  padding: 32px 24px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+
+/*
+  TEACHING: Footer Styling
+  Visually separate from main content.
+  Typically:
+  - Different background color
+  - Smaller text
+  - Multiple columns of info
+*/
+.app-footer {
+  background-color: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+  padding: 32px 24px;
+  margin-top: auto; /* Pushes to bottom */
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+/*
+  TEACHING: Copyright Text
+  Smaller, muted text.
+  Gray color indicates less important info.
+*/
+.copyright {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/*
+  TEACHING: Footer Links
+  Horizontal list of links.
+  Use gap for spacing.
+*/
+.footer-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+}
+
+/*
+  TEACHING: Tech Stack Badge
+  Shows technologies used in the project.
+  Subtle, informative, not distracting.
+*/
+.tech-stack {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #888;
+  font-size: 12px;
+}
+.tech-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+
+
+/*
+  TEACHING: Mobile Responsive
+  On smaller screens:
+  - Reduce padding
+  - Stack navigation vertically (if needed)
+  - Hide icon labels
+  - Adjust font sizes
+*/
+@media (max-width: 768px) {
+  .app-toolbar {
+    padding: 0 16px;
+  }
+  .site-title span {
+    font-size: 18px;
+  }
+  .nav-links {
+    gap: 4px;
+  }
+
+  /* Hide text labels on mobile, show icons only */
+  .nav-links a span {
+    display: none;
+  }
+  .main-container {
+    padding: 24px 16px;
+  }
+  .app-footer {
+    padding: 24px 16px;
+  }
+  .footer-content {
+    gap: 12px;
+  }
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/*
+  TEACHING: Tablet Landscape
+  Medium screens might need slight adjustments.
+*/
+@media (min-width: 769px) and (max-width: 1024px) {
+  .main-container {
+    padding: 28px 20px;
+  }
+}
+
+
+
+
+/*
+  TEACHING: Focus Styles
+  Ensure keyboard navigation is visible.
+  Don't remove focus outlines without replacing them!
+*/
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+
+
+/*
+  TEACHING: Reduced Motion
+  Respect user's motion preferences.
+  Disable animations if user prefers reduced motion.
+  This is important for:
+  - Users with vestibular disorders
+  - Users who get motion sickness
+  - Accessibility compliance
+*/
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/*
+  TEACHING: Print Styles
+  When user prints page:
+  - Hide navigation
+  - Remove shadows
+  - Simplify colors
+*/
+@media print {
+  .app-toolbar,
+  .app-footer {
+    display: none;
+  }
+  .main-container {
+    padding: 0;
+    max-width: none;
+  }
 }
