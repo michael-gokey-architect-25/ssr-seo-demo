@@ -571,6 +571,8 @@ export class SeoService {
 }
 
 
+
+export { Title };
 /**
  * TEACHING: Testing This Service
  * 
