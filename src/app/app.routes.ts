@@ -1,13 +1,14 @@
 // src/app/app.routes.ts
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from '../app/components/home/home';
 import { UserListComponent } from './components/user-list/user-list.component';
-// import { UserDetailComponent } from './components/user-detail/user-detail.component';
-// import { AboutComponent } from './components/about/about.component';
-// import { homeSeoResolver } from './resolvers/home-seo.resolver';
-// import { userListSeoResolver } from './resolvers/user-list-seo.resolver';
-// import { userDetailSeoResolver } from './resolvers/user-detail-seo.resolver';
-import { aboutSeoResolver } from './resolvers/about-seo.resolver';
+import { UserDetailComponent } from '../app/components/user-detail/user-detail';
+import { AboutComponent } from '../app/components/about/about';
+import { homeSeoResolver } from '../app/resolvers/home-seo/home-seo-resolver';
+import { userListSeoResolver } from '../app/resolvers/user-list-seo/user-list-seo-resolver';
+import { userDetailSeoResolver } from '../app/resolvers/user-detail-seo/user-detail-seo-resolver';
+import { aboutSeoResolver } from '../app/resolvers/about-seo/about-seo-resolver';
+
 
 export const routes: Routes = [
   {
@@ -25,21 +26,22 @@ export const routes: Routes = [
     component: UserListComponent,
     resolve: { seo: userListSeoResolver }
   },
-  // {
-  //   path: 'users/:id',
-  //   component: UserDetailComponent,
-  //   /**
-  //    * TEACHING: Resolver has access to route params
-  //    * Can fetch user-specific data for dynamic SEO
-  //    */
-  //   resolve: { seo: userDetailSeoResolver }
-  // },
 
-  // {
-  //   path: 'about',
-  //   component: AboutComponent,
-  //   resolve: { seo: aboutSeoResolver }
-  // },
+  {
+    path: 'users/:id',
+    component: UserDetailComponent,
+    /**
+     * TEACHING: Resolver has access to route params
+     * Can fetch user-specific data for dynamic SEO
+     */
+    resolve: { seo: userDetailSeoResolver }
+  },
+
+  {
+    path: 'about',
+    component: AboutComponent,
+    resolve: { seo: aboutSeoResolver }
+  },
 
   {
     /**

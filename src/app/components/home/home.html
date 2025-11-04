@@ -1,0 +1,339 @@
+<!--  src/app/components/home/home.component.html -->
+
+<!--
+  Home Page Template
+  TEACHING POINT: Landing Page Structure
+  A good landing page should have:
+  - Hero section (attention-grabbing intro)
+  - Value proposition (what this is about)
+  - Feature highlights (key benefits)
+  - Call to action (what to do next)
+  For SEO:
+  - Use <h1> for main heading (only one per page!)
+  - Use <h2> for section headings
+  - Descriptive text content
+  - Internal links to other pages
+-->
+
+<div class="home-container">
+  	<!-- 
+	========================================================================
+       	HERO SECTION
+       	======================================================================== 
+	-->
+  <!--
+    TEACHING: Hero Section
+    The "above the fold" content users see immediately.
+    Should communicate:
+    - What this is
+    - Why it matters
+    - What to do next
+  -->
+  <section class="hero-section">
+    <mat-card class="hero-card">
+      <mat-card-header>
+        <!-- TEACHING: H1 Tag, Every page should have exactly ONE <h1> tag.
+          Search engines use it to understand page topic. Best practices:
+          - Include primary keyword
+          - Be descriptive
+          - Under 60 characters
+          - Unique per page   -->
+        <mat-card-title>
+          <h1 class="hero-title">
+            <mat-icon class="hero-icon">rocket_launch</mat-icon>
+            Angular SSR with Complete SEO
+          </h1>
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <!-- TEACHING: Value Proposition
+          Clear, concise statement of what this offers.
+          Should be understandable in 5 seconds. -->
+        <p class="hero-description">
+          A comprehensive demonstration of Server-Side Rendering in Angular 20
+          with full SEO optimization including meta tags, Open Graph, Twitter Cards,
+          structured data, and modern web development best practices.
+        </p>
+
+        <!--
+          TEACHING: Call to Action (CTA)
+          Primary action you want users to take.
+          Make it prominent and clear.
+          mat-raised-button provides visual emphasis.
+          color="primary" uses theme's primary color. -->
+        <div class="cta-buttons">
+          <a 
+            mat-raised-button 
+            color="primary" 
+            routerLink="/users"
+            class="cta-primary" >
+            <mat-icon>people</mat-icon>
+            <span>Browse Users</span>
+          </a>
+
+          <a 
+            mat-stroked-button 
+            routerLink="/about"
+            class="cta-secondary"
+          >
+            <mat-icon>info</mat-icon>
+            <span>Learn More</span>
+          </a>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+
+  <!-- ========================================================================
+       FEATURES SECTION
+       ======================================================================== -->
+  
+<!--
+    TEACHING: Features Grid
+    
+    Highlight key features/benefits.
+    Use grid layout for visual organization.
+    
+    SEO benefits:
+    - Keyword-rich content
+    - Internal structure
+    - Descriptive headings
+  -->
+  <section class="features-section">
+    <!--
+      TEACHING: Section Heading
+      
+      <h2> for section headings.
+      Establishes content hierarchy.
+      Search engines use headings to understand page structure.
+    -->
+    <h2 class="section-title">What You'll Learn</h2>
+    
+    <div class="features-grid">
+      <!--
+        TEACHING: Feature Cards
+        
+        Each card represents one feature/benefit.
+        Consistent structure makes content scannable.
+        
+        mat-card provides:
+        - Elevation (shadow)
+        - Padding
+        - Rounded corners
+        - Consistent styling
+      -->
+      
+      <!-- Feature: Server-Side Rendering -->
+      <mat-card class="feature-card">
+        <mat-card-header>
+          <div mat-card-avatar class="feature-icon-container">
+            <mat-icon class="feature-icon" color="primary">dns</mat-icon>
+          </div>
+          <mat-card-title>Server-Side Rendering</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            Complete SSR implementation with Angular Universal.
+            Fast initial page loads, better Core Web Vitals, and
+            improved user experience across all devices.
+          </p>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Feature: SEO Optimization -->
+      <mat-card class="feature-card">
+        <mat-card-header>
+          <div mat-card-avatar class="feature-icon-container">
+            <mat-icon class="feature-icon" color="primary">search</mat-icon>
+          </div>
+          <mat-card-title>SEO Optimization</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            Dynamic meta tags, Open Graph for social media, Twitter Cards,
+            canonical URLs, and robots meta tags. Everything search engines
+            need to index your content properly.
+          </p>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Feature: Structured Data -->
+      <mat-card class="feature-card">
+        <mat-card-header>
+          <div mat-card-avatar class="feature-icon-container">
+            <mat-icon class="feature-icon" color="primary">schema</mat-icon>
+          </div>
+          <mat-card-title>Structured Data</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            JSON-LD schemas for rich search results. Person, Organization,
+            and WebSite schemas help search engines understand your content
+            and display enhanced results.
+          </p>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Feature: Modern Angular -->
+      <mat-card class="feature-card">
+        <mat-card-header>
+          <div mat-card-avatar class="feature-icon-container">
+            <mat-icon class="feature-icon" color="primary">code</mat-icon>
+          </div>
+          <mat-card-title>Modern Angular</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            Built with Angular 20, standalone components, functional resolvers,
+            inject() function, and modern TypeScript. No modules, clean
+            architecture, and best practices throughout.
+          </p>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Feature: Performance -->
+      <mat-card class="feature-card">
+        <mat-card-header>
+          <div mat-card-avatar class="feature-icon-container">
+            <mat-icon class="feature-icon" color="primary">speed</mat-icon>
+          </div>
+          <mat-card-title>Performance Focused</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            Client hydration with event replay, HTTP Transfer State caching,
+            mixed rendering modes (SSR + SSG), and optimized bundle sizes
+            for lightning-fast page loads.
+          </p>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Feature: Documentation -->
+      <mat-card class="feature-card">
+        <mat-card-header>
+          <div mat-card-avatar class="feature-icon-container">
+            <mat-icon class="feature-icon" color="primary">menu_book</mat-icon>
+          </div>
+          <mat-card-title>Fully Documented</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            Comprehensive inline comments explaining every concept.
+            Perfect for learning SSR, SEO, and modern Angular patterns.
+            Designed for junior developers and teams.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+
+
+  <!-- ========================================================================
+       TECHNICAL DETAILS SECTION
+       ======================================================================== -->
+  
+<!--
+    TEACHING: Technical Details
+    
+    Provide specific implementation details.
+    Good for:
+    - Developer audience
+    - Technical SEO (long-tail keywords)
+    - Credibility
+  -->
+  <section class="tech-details-section">
+    <h2 class="section-title">Technical Implementation</h2>
+    
+    <mat-card class="tech-details-card">
+      <mat-card-content>
+        <div class="tech-grid">
+          <!--
+            TEACHING: Technical Feature List
+            
+            Specific, keyword-rich bullet points.
+            Search engines love lists!
+          -->
+          <div class="tech-column">
+            <h3><mat-icon>settings</mat-icon> Core Features</h3>
+            <ul>
+              <li>Angular 20 with SSR enabled</li>
+              <li>Standalone components (no modules)</li>
+              <li>TypeScript strict mode</li>
+              <li>Angular Material components</li>
+              <li>Responsive design</li>
+              <li>Accessibility compliant</li>
+            </ul>
+          </div>
+
+          <div class="tech-column">
+            <h3><mat-icon>code</mat-icon> SEO Features</h3>
+            <ul>
+              <li>Dynamic meta tags per route</li>
+              <li>Open Graph tags</li>
+              <li>Twitter Card tags</li>
+              <li>Canonical URLs</li>
+              <li>Sitemap.xml generation</li>
+              <li>Robots.txt configuration</li>
+            </ul>
+          </div>
+
+          <div class="tech-column">
+            <h3><mat-icon>trending_up</mat-icon> Performance</h3>
+            <ul>
+              <li>Server-side rendering</li>
+              <li>Client hydration</li>
+              <li>Event replay</li>
+              <li>HTTP Transfer State</li>
+              <li>Static site generation</li>
+              <li>Optimized bundles</li>
+            </ul>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+
+  <!-- ========================================================================
+       CALL TO ACTION SECTION
+       ======================================================================== -->
+  
+<!--
+    TEACHING: Secondary CTA
+    
+    Reinforce primary action at page bottom.
+    Users who scrolled this far are interested!
+  -->
+  <section class="bottom-cta-section">
+    <mat-card class="cta-card">
+      <mat-card-header>
+        <mat-card-title>
+          <h2>Ready to Explore?</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          Check out the user directory to see dynamic SEO in action,
+          or learn more about the implementation on the about page.
+        </p>
+        <div class="cta-buttons">
+          <a mat-raised-button color="primary" routerLink="/users">
+            <mat-icon>people</mat-icon>
+            <span>View Users</span>
+          </a>
+          <a mat-stroked-button routerLink="/about">
+            <mat-icon>info</mat-icon>
+            <span>About This Project</span>
+          </a>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</div>
+
+
+
+

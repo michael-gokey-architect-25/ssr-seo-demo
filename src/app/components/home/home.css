@@ -1,0 +1,406 @@
+/* src/app/components/home/home.component.css */
+
+/* ==========================================================================
+   Home Component Styles
+   
+   TEACHING POINT: Component Styling Strategy
+   
+   Organize styles by section:
+   - Container/layout
+   - Hero section
+   - Features section
+   - Technical details
+   - CTA sections
+   - Responsive adjustments
+   ========================================================================== */
+
+/* ==========================================================================
+   Container
+   ========================================================================== */
+
+/*
+  TEACHING: Page Container
+  
+  Consistent spacing for all sections.
+  Use CSS variables for easy theming.
+*/
+.home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 0;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+/*
+  TEACHING: Hero Card Styling
+  
+  Make hero section stand out:
+  - Larger padding
+  - Center alignment
+  - Gradient background
+  - Elevated appearance
+*/
+.hero-section {
+  margin-bottom: 24px;
+}
+
+.hero-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 24px;
+  text-align: center;
+}
+
+.hero-card mat-card-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+/*
+  TEACHING: Hero Title Styling
+  
+  Large, prominent heading.
+  Include icon for visual interest.
+*/
+.hero-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.hero-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+}
+
+.hero-description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+  TEACHING: CTA Button Group
+  
+  Flexbox for horizontal layout.
+  Gap for spacing between buttons.
+*/
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-primary,
+.cta-secondary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Features Section
+   ========================================================================== */
+
+.features-section {
+  margin: 24px 0;
+}
+
+/*
+  TEACHING: Section Title
+  
+  Consistent styling for all section headings.
+  Center-aligned for visual balance.
+*/
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: #333;
+}
+
+/*
+  TEACHING: CSS Grid for Features
+  
+  Grid layout provides:
+  - Equal-height cards
+  - Responsive columns
+  - Consistent gaps
+  - Auto-fill for flexibility
+  
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+  - auto-fit: Adjusts columns based on available space
+  - minmax(300px, 1fr): Minimum 300px, maximum equal fraction
+  - Result: Responsive without media queries!
+*/
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/*
+  TEACHING: Feature Card Styling
+  
+  Cards should:
+  - Have consistent height (grid handles this)
+  - Show hover effect
+  - Have smooth transitions
+*/
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: default;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card mat-card-header {
+  margin-bottom: 16px;
+}
+
+/*
+  TEACHING: Icon Container
+  
+  Circular background for icons.
+  Creates visual consistency.
+*/
+.feature-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(103, 58, 183, 0.1);
+}
+
+.feature-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+}
+
+.feature-card mat-card-content p {
+  margin: 0;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* ==========================================================================
+   Technical Details Section
+   ========================================================================== */
+
+.tech-details-section {
+  margin: 24px 0;
+}
+
+.tech-details-card {
+  padding: 24px;
+}
+
+/*
+  TEACHING: Three-Column Grid
+  
+  For technical details, three equal columns work well.
+*/
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+}
+
+.tech-column h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.tech-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-column li {
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+  color: #666;
+  line-height: 1.6;
+}
+
+/*
+  TEACHING: Custom List Bullets
+  
+  Use ::before pseudo-element for custom bullets.
+  More control than default list styling.
+*/
+.tech-column li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #673ab7;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   Bottom CTA Section
+   ========================================================================== */
+
+.bottom-cta-section {
+  margin: 48px 0 24px;
+}
+
+.cta-card {
+  text-align: center;
+  padding: 32px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.cta-card h2 {
+  margin: 0 0 16px;
+  color: #333;
+}
+
+.cta-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 24px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+/*
+  TEACHING: Mobile Adjustments
+  
+  On smaller screens:
+  - Reduce font sizes
+  - Adjust padding
+  - Stack elements vertically
+  - Simplify layouts
+*/
+@media (max-width: 768px) {
+  .home-container {
+    gap: 32px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hero-icon {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .features-grid,
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    width: 100%;
+  }
+}
+
+/*
+  TEACHING: Tablet Adjustments
+  
+  Medium screens might need slight tweaks.
+*/
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+/*
+  TEACHING: Focus Indicators
+  
+  Ensure all interactive elements have visible focus states.
+  Critical for keyboard navigation.
+*/
+.feature-card:focus-within {
+  outline: 2px solid #673ab7;
+  outline-offset: 4px;
+}
+
+/*
+  TEACHING: Reduced Motion
+  
+  Respect user preferences for reduced motion.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .feature-card {
+    transition: none;
+  }
+  
+  .feature-card:hover {
+    transform: none;
+  }
+}
+
