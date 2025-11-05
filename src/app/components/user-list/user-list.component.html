@@ -1,22 +1,187 @@
 <!-- src/app/components/user-list/user-list.component.html -->
 
-<!-- Loading Spinner -->
-<div *ngIf="loading" class="spinner-container">
-  <mat-spinner></mat-spinner>
-</div>
 
-<!-- User List -->
-<mat-list *ngIf="!loading && !error">
-  <h3 mat-subheader>Users</h3>
-  <mat-list-item *ngFor="let user of users">
-    {{ user.name }} — {{ user.email }}
-  </mat-list-item>
-  <div *ngIf="users.length === 0" class="empty-state">
-    No users found.
+<!-- 
+ * User List Template
+ * TEACHING POINT: List Page Structure
+ * Good list pages have:
+ * - Clear heading (H1)
+ * - Loading state
+ * - Empty state
+ * - Grid/list of items
+ * - Links to detail pages
+ */ -->
+ 
+
+
+<div class="user-list-container">
+<!-- ========================================================================
+      PAGE HEADER
+      ======================================================================== -->
+  <!--
+    TEACHING: Page Header, Every page should have:
+    - H1 tag (only one per page!)
+    - Descriptive subtitle
+    - Optional actions/filters  -->
+  <header class="page-header">
+    <h1 class="page-title">
+      <mat-icon class="title-icon">people</mat-icon>
+      User Directory
+    </h1>
+    <p class="page-description">
+      Browse our community of developers, designers, and engineers.
+      Click any profile to view detailed information.
+    </p>
+  </header>
+
+
+<!-- ========================================================================
+      LOADING STATE
+      ======================================================================== -->
+  <!--
+    TEACHING: Loading Indicator, Show spinner while data loads.
+    In SSR: Usually not visible (data ready immediately)
+    In CSR: Visible during API call
+    Always handle loading states for good UX!  -->
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner></mat-spinner>
+    <p>Loading users...</p>
   </div>
-</mat-list>
 
-<!-- Error Message -->
-<div *ngIf="error && !loading" class="error-message">
-  {{ error }}
+
+<!-- ========================================================================
+      EMPTY STATE
+      ======================================================================== -->
+  <!--
+    TEACHING: Empty State
+    Show helpful message when no data.
+    Guide user on what to do next.  -->
+  <div *ngIf="!loading && users.length === 0" class="empty-state">
+    <mat-icon class="empty-icon">person_off</mat-icon>
+    <h2>No Users Found</h2>
+    <p>There are currently no users in the directory.</p>
+  </div>
+
+
+<!-- ========================================================================
+      USER GRID
+      ======================================================================== -->
+  <!--
+    TEACHING: Data Grid, Display items in responsive grid.
+    Each card links to detail page.
+    SEO benefits:
+    - Internal links (PageRank flow)
+    - Descriptive link text (user names)
+    - Semantic HTML (article elements)  -->
+  <div *ngIf="!loading && users.length > 0" class="users-grid">
+    <!--
+      TEACHING: *ngFor with trackBy
+      *ngFor renders list items.
+      trackBy improves performance:
+      - Angular knows which items changed
+      - Only re-renders changed items
+      - Not strictly necessary here but good practice
+      In larger lists, trackBy is critical!  -->
+    <article *ngFor="let user of users; trackBy: trackByUserId" class="user-card-wrapper">
+      <!--
+        TEACHING: Semantic HTML
+        <article> indicates self-contained content.
+        Good for SEO and accessibility.
+        Each user is an independent article. -->
+      <mat-card class="user-card">
+        <!--
+          TEACHING: Card Header with Avatar
+          mat-card-avatar slot for profile image.
+          Shows visual identity.   -->
+        <mat-card-header>
+          <div mat-card-avatar class="user-avatar">
+            <!--
+              TEACHING: Avatar Display
+              Show user avatar or fallback icon.
+              Background image for actual photos.
+              Icon for users without photos.  -->
+            <div 
+              *ngIf="user.avatar" 
+              class="avatar-image"
+              [style.background-image]="'url(' + user.avatar + ')'"
+              [attr.aria-label]="user.name + ' avatar'"
+            ></div>
+            <mat-icon *ngIf="!user.avatar" class="avatar-placeholder">person</mat-icon>
+          </div>
+          
+          <!--
+            TEACHING: Card Title as Link
+            User name is clickable, links to profile.
+            routerLink enables client-side navigation.
+            No page reload, instant navigation.
+            In SSR: Link works even before JS loads!   -->
+          <mat-card-title>
+            <a [routerLink]="['/users', user.id]" class="user-name-link">
+              {{ user.name }}
+            </a>
+          </mat-card-title>
+          
+          <!--
+            TEACHING: Card Subtitle
+            Secondary information (job title).
+            Provides context about user.     -->
+          <mat-card-subtitle *ngIf="user.jobTitle">
+            {{ user.jobTitle }}
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <!--
+          TEACHING: Card Content
+          Main information about user.
+          Keep it concise for list view.
+          Detail page shows full info.  -->
+        <mat-card-content>
+          <!--
+            TEACHING: User Info Grid
+            Display key info with icons.
+            Icons provide visual scanning.      -->
+          <div class="user-info">
+            <div *ngIf="user.company" class="info-row">
+              <mat-icon class="info-icon">business</mat-icon>
+              <span class="info-text">{{ user.company.name }}</span>
+            </div>
+            
+            <div *ngIf="user.email" class="info-row">
+              <mat-icon class="info-icon">email</mat-icon>
+              <span class="info-text">{{ user.email }}</span>
+            </div>
+            
+            <div *ngIf="user.address" class="info-row">
+              <mat-icon class="info-icon">location_on</mat-icon>
+              <span class="info-text">{{ user.address.city }}</span>
+            </div>
+          </div>
+
+          <!--
+            TEACHING: Bio Preview
+            Show short bio if available.
+            Truncate long text with CSS.      -->
+          <p *ngIf="user.bio" class="user-bio">
+            {{ user.bio }}
+          </p>
+        </mat-card-content>
+
+        <!--
+          TEACHING: Card Actions
+          mat-card-actions for action buttons.
+          Primary action: View full profile.    -->
+        <mat-card-actions>
+          <a 
+            mat-button 
+            color="primary" 
+            [routerLink]="['/users', user.id]"
+            class="view-profile-btn"
+          >
+            <mat-icon>person</mat-icon>
+            <span>View Profile</span>
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </article>
+  </div>
 </div>

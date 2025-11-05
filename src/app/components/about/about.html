@@ -1,1 +1,333 @@
-<p>about works!</p>
+<!-- src/app/components/about/about.component.html -->
+
+<!-- /**
+    * About Page Template, TEACHING POINT: About Page Structure
+    * Good about pages include:
+    * - Mission/purpose
+    * - What it does
+    * - Who it's for
+    * - Technology/features
+    * - How to get started
+    * - Contact/support */ -->
+
+
+
+<div class="about-container">
+<!-- ========================================================================
+    HERO SECTION
+    ======================================================================== -->
+
+  <!--  TEACHING: About Hero
+        Clear statement of what this is about. Make it immediately understandable. -->
+  <section class="hero-section">
+    <mat-card class="hero-card">
+      <mat-card-header>
+        <mat-card-title>
+          <h1 class="hero-title">
+            <mat-icon class="hero-icon">info</mat-icon>
+            About This Project
+          </h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="hero-description">
+          A comprehensive demonstration of Angular Server-Side Rendering (SSR) 
+          with complete SEO optimization. This project showcases modern web 
+          development best practices including dynamic meta tags, Open Graph, 
+          Twitter Cards, structured data, and high-performance rendering strategies.
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+
+<!-- ========================================================================
+    PURPOSE SECTION
+    ======================================================================== -->
+  <section class="content-section">
+    <mat-card class="content-card">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="section-title">
+            <mat-icon class="section-icon">flag</mat-icon>
+            Purpose
+          </h2>
+        </mat-card-title>
+      </mat-card-header>
+      
+      <mat-divider></mat-divider>
+      
+      <mat-card-content>
+        <p class="section-text">
+          This project was created as an educational resource for developers 
+          learning Angular SSR and SEO implementation. Every line of code is 
+          extensively documented with teaching comments to help junior developers 
+          and teams understand the concepts and patterns.
+        </p>
+        <p class="section-text">
+          Whether you're building an e-commerce site, a blog, a portfolio, or 
+          any content-driven application, the patterns demonstrated here will 
+          help you create fast, SEO-friendly Angular applications.
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+
+<!-- ========================================================================
+    FEATURES SECTION
+    ======================================================================== -->
+  <section class="content-section">
+    <mat-card class="content-card">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="section-title">
+            <mat-icon class="section-icon">stars</mat-icon>
+            Key Features
+          </h2>
+        </mat-card-title>
+      </mat-card-header>
+      
+      <mat-divider></mat-divider>
+      
+      <mat-card-content>
+        <div class="features-list">
+          <!--
+            TEACHING: Feature Items
+            List of key features with descriptions. Use mat-icon for visual interest. -->
+          <div class="feature-item">
+            <mat-icon class="feature-icon" color="primary">dns</mat-icon>
+            <div class="feature-content">
+              <h3 class="feature-title">Server-Side Rendering</h3>
+              <p class="feature-description">
+                Full SSR implementation with Angular Universal for fast initial 
+                page loads and improved Core Web Vitals.
+              </p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <mat-icon class="feature-icon" color="primary">search</mat-icon>
+            <div class="feature-content">
+              <h3 class="feature-title">Complete SEO</h3>
+              <p class="feature-description">
+                Dynamic meta tags, Open Graph, Twitter Cards, canonical URLs, 
+                and robots meta tags for maximum search engine visibility.
+              </p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <mat-icon class="feature-icon" color="primary">schema</mat-icon>
+            <div class="feature-content">
+              <h3 class="feature-title">Structured Data</h3>
+              <p class="feature-description">
+                JSON-LD schemas (Person, Organization, WebSite) for rich 
+                search results and knowledge graph eligibility.
+              </p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <mat-icon class="feature-icon" color="primary">speed</mat-icon>
+            <div class="feature-content">
+              <h3 class="feature-title">Performance Optimized</h3>
+              <p class="feature-description">
+                Client hydration, event replay, HTTP Transfer State caching, 
+                and mixed rendering modes (SSR + SSG) for optimal performance.
+              </p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <mat-icon class="feature-icon" color="primary">code</mat-icon>
+            <div class="feature-content">
+              <h3 class="feature-title">Modern Angular</h3>
+              <p class="feature-description">
+                Built with Angular 20, standalone components, functional 
+                resolvers, and TypeScript best practices.
+              </p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <mat-icon class="feature-icon" color="primary">menu_book</mat-icon>
+            <div class="feature-content">
+              <h3 class="feature-title">Educational</h3>
+              <p class="feature-description">
+                Comprehensive inline documentation explaining every concept, 
+                perfect for learning and team training.
+              </p>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+
+<!-- ========================================================================
+    TECHNOLOGY STACK SECTION
+    ======================================================================== -->
+  <section class="content-section">
+    <mat-card class="content-card">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="section-title">
+            <mat-icon class="section-icon">build</mat-icon>
+            Technology Stack
+          </h2>
+        </mat-card-title>
+      </mat-card-header>
+      
+      <mat-divider></mat-divider>
+      
+      <mat-card-content>
+        <div class="tech-grid">
+          <div class="tech-category">
+            <h3 class="tech-category-title">Frontend</h3>
+            <ul class="tech-list">
+              <li>Angular 20</li>
+              <li>TypeScript</li>
+              <li>Angular Material</li>
+              <li>RxJS</li>
+              <li>Standalone Components</li>
+            </ul>
+          </div>
+
+          <div class="tech-category">
+            <h3 class="tech-category-title">Rendering</h3>
+            <ul class="tech-list">
+              <li>Angular Universal</li>
+              <li>Server-Side Rendering</li>
+              <li>Static Site Generation</li>
+              <li>Client Hydration</li>
+              <li>Event Replay</li>
+            </ul>
+          </div>
+
+          <div class="tech-category">
+            <h3 class="tech-category-title">SEO</h3>
+            <ul class="tech-list">
+              <li>Meta Tags</li>
+              <li>Open Graph Protocol</li>
+              <li>Twitter Cards</li>
+              <li>JSON-LD Structured Data</li>
+              <li>Sitemap Generation</li>
+            </ul>
+          </div>
+
+          <div class="tech-category">
+            <h3 class="tech-category-title">Testing</h3>
+            <ul class="tech-list">
+              <li>Jest</li>
+              <li>Testing Library</li>
+              <li>Unit Tests</li>
+              <li>Component Tests</li>
+              <li>Service Tests</li>
+            </ul>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+
+<!-- ========================================================================
+    GETTING STARTED SECTION
+    ======================================================================== -->
+  <section class="content-section">
+    <mat-card class="content-card">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="section-title">
+            <mat-icon class="section-icon">rocket_launch</mat-icon>
+            Getting Started
+          </h2>
+        </mat-card-title>
+      </mat-card-header>
+      
+      <mat-divider></mat-divider>
+      
+      <mat-card-content>
+        <p class="section-text">
+          This project demonstrates production-ready patterns that you can adapt 
+          for your own Angular applications. Here's how to get started:
+        </p>
+
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3 class="step-title">Clone or Fork</h3>
+              <p class="step-description">
+                Get the code and explore the structure. Every file is documented 
+                with teaching comments.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3 class="step-title">Study the Services</h3>
+              <p class="step-description">
+                Start with SeoService and StructuredDataService to understand 
+                how SEO is implemented.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3 class="step-title">Explore Resolvers</h3>
+              <p class="step-description">
+                Learn how route resolvers provide SEO data before components load, 
+                ensuring meta tags in SSR HTML.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3 class="step-title">Adapt for Your Project</h3>
+              <p class="step-description">
+                Take the patterns and apply them to your own application. 
+                Customize the SEO data for your content.
+              </p>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+
+<!-- ========================================================================
+    CALL TO ACTION
+    ======================================================================== -->
+  <section class="cta-section">
+    <mat-card class="cta-card">
+      <mat-card-content>
+        <h2 class="cta-title">Explore the Demo</h2>
+        <p class="cta-description">
+          Check out the user directory to see dynamic SEO in action with 
+          personalized meta tags and structured data for each profile.
+        </p>
+        <div class="cta-buttons">
+          <a mat-raised-button color="primary" routerLink="/users" class="cta-button">
+            <mat-icon>people</mat-icon>
+            <span>View Users</span>
+          </a>
+          <a mat-stroked-button routerLink="/" class="cta-button">
+            <mat-icon>home</mat-icon>
+            <span>Back to Home</span>
+          </a>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+</div>

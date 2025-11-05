@@ -32,7 +32,7 @@ describe('UserListComponent', () => {
     httpMock.verify(); // Ensures no outstanding HTTP requests
   });
 
-  it('should create component', () => {
+  it('should create component, UserListComponent', () => {
     expect(component).toBeTruthy();
   });
 

@@ -15,4 +15,5 @@ describe('userDetailSeoResolver', () => {
   it('should be created, userDetailSeoResolver', () => {
     expect(executeResolver).toBeTruthy();
   });
+  
 });
