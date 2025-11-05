@@ -1,23 +1,26 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// src/app/components/user-detail/user-detail.component.spec.ts
 
-import { UserDetail } from './user-detail';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { UserDetailComponent } from './user-detail';
+
 
 describe('UserDetail', () => {
-  let component: UserDetail;
-  let fixture: ComponentFixture<UserDetail>;
+  let component: UserDetailComponent;
+  let fixture: ComponentFixture<UserDetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserDetail]
+      imports: [UserDetailComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UserDetail);
+    fixture = TestBed.createComponent(UserDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create, UserDetailComponent', () => {
     expect(component).toBeTruthy();
   });
+
 });

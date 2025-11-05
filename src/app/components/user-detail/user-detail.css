@@ -1,0 +1,365 @@
+/* src/app/components/user-detail/user-detail.component.css */
+
+/* ==========================================================================
+   User Detail Component Styles
+   
+   TEACHING POINT: Detail Page Styling
+   
+   Detail pages should:
+   - Have clear visual hierarchy
+   - Group related information
+   - Use whitespace effectively
+   - Be easy to scan
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Container
+   ========================================================================== */
+.user-detail-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+
+/* ==========================================================================
+   Loading State
+   ========================================================================== */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+  gap: 16px;
+}
+.loading-container p {
+  color: #666;
+  font-size: 16px;
+}
+
+
+/* ==========================================================================
+   Profile Content
+   ========================================================================== */
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+
+/* ==========================================================================
+   Back Navigation
+   ========================================================================== */
+.back-navigation {
+  margin-bottom: 8px;
+}
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #673ab7;
+}
+
+
+/* ==========================================================================
+   Hero Card
+   ========================================================================== */
+/*
+  TEACHING: Hero Card Layout
+  Prominent display of key user info.
+  Flexbox for avatar + text layout.
+*/
+.hero-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 32px;
+}
+.hero-content {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/*
+  TEACHING: Large Avatar
+  Much bigger than list view (120px vs 56px).
+  Circular with shadow for depth.
+*/
+.hero-avatar {
+  flex-shrink: 0;
+}
+.avatar-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 4px solid white;
+}
+.avatar-placeholder-large {
+  width: 120px;
+  height: 120px;
+  font-size: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+}
+
+/*
+  TEACHING: Hero Text
+  User name, title, company, bio.
+  Clear hierarchy with font sizes.
+*/
+.hero-text {
+  flex: 1;
+}
+.user-name {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+.job-title,
+.company-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  margin: 8px 0;
+  opacity: 0.95;
+}
+.inline-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+.user-bio {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 16px 0 0;
+  opacity: 0.9;
+}
+
+
+/* ==========================================================================
+   Info Cards
+   ========================================================================== */
+/*
+  TEACHING: Section Cards
+  Each card represents a section of information.
+  Consistent styling and spacing.
+*/
+.info-card {
+  padding: 24px;
+}
+.info-card mat-card-header {
+  margin-bottom: 16px;
+}
+.info-card mat-card-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+.section-icon {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+  color: #673ab7;
+}
+
+
+/* ==========================================================================
+   Contact Information
+   ========================================================================== */
+/*
+  TEACHING: Contact Grid
+  Display contact items in a grid.
+  Each item has icon, label, and value.
+*/
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 16px;
+}
+.contact-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.contact-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  color: #673ab7;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.contact-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #999;
+  letter-spacing: 0.5px;
+}
+.contact-value {
+  font-size: 16px;
+  color: #333;
+  word-break: break-all;
+}
+
+/*
+  TEACHING: Clickable Links
+  Email, phone, website links.
+  Styled to look clickable.
+*/
+a.contact-value {
+  color: #673ab7;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a.contact-value:hover {
+  color: #9c27b0;
+  text-decoration: underline;
+}
+
+
+/* ==========================================================================
+   Address Section
+   ========================================================================== */
+.address-content {
+  margin-top: 16px;
+}
+.address-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: #666;
+  margin: 12px 0;
+}
+
+
+/* ==========================================================================
+   Company Section
+   ========================================================================== */
+.company-content {
+  margin-top: 16px;
+}
+.company-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 8px;
+}
+.company-tagline {
+  font-size: 16px;
+  font-style: italic;
+  color: #666;
+  margin: 0;
+}
+
+
+/* ==========================================================================
+   Actions Card
+   ========================================================================== */
+.actions-card {
+  padding: 24px;
+  text-align: center;
+}
+.action-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+}
+
+
+/* ==========================================================================
+   Error State
+   ========================================================================== */
+.error-state {
+  text-align: center;
+  padding: 80px 20px;
+}
+.error-icon {
+  font-size: 64px;
+  width: 64px;
+  height: 64px;
+  color: #ccc;
+  margin-bottom: 16px;
+}
+.error-state h2 {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0 0 8px;
+  color: #666;
+}
+.error-state p {
+  font-size: 16px;
+  color: #999;
+  margin: 0 0 24px;
+}
+
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+  .user-name {
+    font-size: 28px;
+  }
+  .job-title,
+  .company-name {
+    justify-content: center;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .action-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .action-button {
+    width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  a.contact-value {
+    transition: none;
+  }
+}
+
