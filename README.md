@@ -184,6 +184,7 @@ SSR renders your Angular application on the server for each request:
 8. Browser displays immediately
 9. Angular hydrates (makes interactive)
 
+
 ### Static Site Generation (SSG)
 
 SSG pre-renders pages at build time:
@@ -516,6 +517,7 @@ COPY dist/ .
 CMD ["node", "server/server.mjs"]
 ```
 
+
 ### Environment Variables
 
 Update `ConfigService` for different environments:
@@ -525,6 +527,7 @@ Update `ConfigService` for different environments:
 readonly baseUrl = process.env['BASE_URL'] || 'http://localhost:4200';
 ```
 .
+
 
 ## 🔧 Configuration
 
@@ -586,9 +589,11 @@ This is an educational project. Suggestions for improvements:
 - Performance optimizations
 - Accessibility improvements
 
+
 ### 📝 License
 
 This project is created for educational purposes.
+
 
 ### 🙏 Acknowledgments
 
@@ -705,31 +710,26 @@ and
 
 ```
 /**
- * NPM Scripts for Jest Testing
- * Add these to your package.json "scripts" section:
- * {
- * "scripts": {
- * "test": "jest --passWithNoTests",
- * "test:watch": "jest --watch",
- * "test:coverage": "jest --coverage"
- * }
- * }
- * * TEACHING: Script Explanations
- * test:
- * - Runs Jest once and exits.
- * - Executes all project test files.
- * - --passWithNoTests prevents failure if no tests are found.
- * - Ideal for CI/CD and quick checks.
- * test:watch:
- * - Runs Jest in continuous watch mode.
- * - Automatically re-runs tests on file changes (smart/fast).
- * - Stays active for instant feedback during development.
- * - Provides interactive menu for filtering tests.
- * test:coverage:
- * - Runs all tests once.
- * - Generates a detailed code coverage report.
- * - Creates a coverage/ folder with an openable HTML report.
- * - Use before releases to enforce quality/thresholds.
+ * TEACHING: Running Tests
+ * Jest:
+ * npm test                    # Run all tests
+ * npm test seo.service        # Run specific test file
+ * npm test -- --coverage      # Run with coverage report
+ * npm test -- --watch         # Run in watch mode
+ * Test Output:
+ * ✓ Green checkmark = test passed
+ * ✗ Red X = test failed
+ * Coverage Report:
+ * - Shows which lines are tested
+ * - Aim for >80% coverage
+ * - Focus on business logic
+ * Best Practices:
+ * - One assertion per test (usually)
+ * - Test behavior, not implementation
+ * - Use descriptive test names
+ * - Keep tests simple and readable
+ * - Test edge cases and errors
+ * - Run tests before committing
  */
  ```
 
