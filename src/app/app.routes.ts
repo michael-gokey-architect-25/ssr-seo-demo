@@ -1,9 +1,9 @@
 // src/app/app.routes.ts
 import { Routes } from '@angular/router';
-import { HomeComponent } from '../app/components/home/home';
+import { HomeComponent } from './components/home/home.component';
 import { UserListComponent } from './components/user-list/user-list.component';
-import { UserDetailComponent } from '../app/components/user-detail/user-detail';
-import { AboutComponent } from '../app/components/about/about';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { AboutComponent } from './components/about/about.component';
 import { homeSeoResolver } from '../app/resolvers/home-seo/home-seo-resolver';
 import { userListSeoResolver } from '../app/resolvers/user-list-seo/user-list-seo-resolver';
 import { userDetailSeoResolver } from '../app/resolvers/user-detail-seo/user-detail-seo-resolver';

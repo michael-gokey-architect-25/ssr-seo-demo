@@ -37,11 +37,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { SeoService } from '../../services/seo/seo';
-import { StructuredDataService } from '../../services/structured-data/structured-data';
+import { SeoService } from '../../services/seo/seo.service';
+import { StructuredDataService } from '../../services/structured-data/structured-data.service';
 import { UserService } from '../../services/user/user.service';
-import { User } from '../../models/user';
-import { SeoData } from '../../models/seo-data';
+import { User } from '../../models/user.interface';
+import { SeoData } from '../../models/seo-data.interface';
 
 
 @Component({

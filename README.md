@@ -735,3 +735,22 @@ and
 
 --------
 
+## 💡 Pro Tips
+
+1. **Always inject DOCUMENT**: Never access global `document` directly
+2. **Provide all dependencies**: Check component constructor for required services
+3. **Mock ActivatedRoute**: Use a mock object with observable properties
+4. **Clean up after tests**: Remove created DOM elements in `afterEach`
+5. **Test in isolation**: Each test should be independent
+6. **Use TestBed properly**: Configure it in `beforeEach`, not globally
+
+---
+
+## 📚 Additional Resources
+
+- [Jest Documentation](https://jestjs.io/docs/getting-started)
+- [jest-preset-angular](https://thymikee.github.io/jest-preset-angular/)
+- [Angular Testing Guide](https://angular.dev/guide/testing)
+- [Testing Services](https://angular.dev/guide/testing/services)
+- [Testing Components](https://angular.dev/guide/testing/components-basics)
+

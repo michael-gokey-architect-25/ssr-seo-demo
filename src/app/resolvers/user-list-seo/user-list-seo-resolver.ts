@@ -1,8 +1,8 @@
 // src/app/resolvers/user-list-seo.resolver.ts
 import { inject } from "@angular/core";
 import { ResolveFn } from "@angular/router";
-import { SeoData } from "../../models/seo-data";
-import { ConfigService } from "../../services/config/config";
+import { SeoData } from "../../models/seo-data.interface";
+import { ConfigService } from "../../services/config/config.service";
 
 /**
  * User List Page SEO Resolver, provides SEO metadata for the user list/directory page.

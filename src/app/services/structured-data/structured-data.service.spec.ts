@@ -1,18 +1,54 @@
 // src/app/services/structured-data.service.spec.ts
 import { TestBed } from '@angular/core/testing';
-import { StructuredData } from './structured-data';
-
+import { DOCUMENT } from '@angular/common';
+import { StructuredData } from './structured-data.service';
 
 describe('StructuredData', () => {
   let service: StructuredData;
+  let document: Document;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [StructuredData]
+    });
     service = TestBed.inject(StructuredData);
+    document = TestBed.inject(DOCUMENT);
   });
 
   it('StructuredData service should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('should add structured data to document', () => {
+    const schema = {
+      '@context': 'https://schema.org/',
+      '@type': 'Person',
+      name: 'Test Person'
+    };
+
+    service.addStructuredData(schema, 'test-person');
+
+    const scriptTag = document.getElementById('structured-data-test-person');
+    expect(scriptTag).toBeTruthy();
+    expect(scriptTag?.textContent).toContain('Test Person');
+  });
+
+  it('should create person schema', () => {
+    const user = {
+      id: 1,
+      name: 'John Doe',
+      email: 'john@example.com',
+      jobTitle: 'Developer',
+      company: 'Acme Corp',
+      bio: 'Software developer',
+      avatar: 'https://example.com/avatar.jpg'
+    };
+
+    const schema = service.createPersonSchema(user);
+
+    expect(schema['@type']).toBe('Person');
+    expect(schema.name).toBe('John Doe');
+    expect(schema.jobTitle).toBe('Developer');
   });
 });
 

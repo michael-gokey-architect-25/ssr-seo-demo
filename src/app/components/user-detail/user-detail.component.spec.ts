@@ -1,7 +1,7 @@
 // src/app/components/user-detail/user-detail.component.spec.ts
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UserDetailComponent } from './user-detail';
+import { UserDetailComponent } from './user-detail.component';
 
 
 describe('UserDetail', () => {

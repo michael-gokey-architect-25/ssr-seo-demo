@@ -57,7 +57,7 @@ import {
   WebSiteSchema,
   BreadcrumbListSchema
 } from '../../models/structured-data';
-import { User } from '../../models/user';
+import { User } from '../../models/user.interface';
 
 
 @Injectable({
@@ -536,6 +536,8 @@ export class StructuredDataService {
 
 
 
+
+export { StructuredData };
 /**
  * TEACHING: Testing Structured Data
  * 1. In Development:

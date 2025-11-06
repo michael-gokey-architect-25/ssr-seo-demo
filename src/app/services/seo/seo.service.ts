@@ -46,7 +46,7 @@
 import { Injectable, inject, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { SeoData } from '../../models/seo-data';
+import { SeoData } from '../../models/seo-data.interface';
 
 
 @Injectable({

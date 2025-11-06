@@ -19,4 +19,41 @@ const config: Config = {
   transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)']
 };
 
-export default config;
+
+// export default config;
+export default {
+  preset: 'jest-preset-angular',
+  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+  collectCoverageFrom: [
+    'src/**/*.ts',
+    '!src/**/*.spec.ts',
+    '!src/**/*.d.ts',
+    '!src/main.ts',
+    '!src/main.server.ts',
+  ],
+  moduleFileExtensions: ['ts', 'html', 'js', 'json', 'mjs'],
+  transform: {
+    '^.+\\.(ts|js|html)$': [
+      'jest-preset-angular',
+      {
+        tsconfig: '<rootDir>/tsconfig.spec.json',
+        stringifyContentPathRegex: '\\.html$',
+      },
+    ],
+  },
+  moduleNameMapper: {
+    '^@app/(.*)$': '<rootDir>/src/app/$1',
+    '^@services/(.*)$': '<rootDir>/src/app/services/$1',
+    '^@components/(.*)$': '<rootDir>/src/app/components/$1',
+  },
+  testEnvironment: 'jsdom',
+  globals: {
+    'ts-jest': {
+      tsconfig: {
+        esModuleInterop: true,
+        allowSyntheticDefaultImports: true,
+      },
+    },
+  },
+};

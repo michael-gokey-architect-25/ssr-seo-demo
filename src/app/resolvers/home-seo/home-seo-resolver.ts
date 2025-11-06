@@ -29,8 +29,8 @@
  */
 import { ResolveFn } from '@angular/router';
 import { inject } from '@angular/core';
-import { SeoData } from '../../models/seo-data';
-import { ConfigService } from '../../services/config/config';
+import { SeoData } from '../../models/seo-data.interface';
+import { ConfigService } from '../../services/config/config.service';
 
 
 /**

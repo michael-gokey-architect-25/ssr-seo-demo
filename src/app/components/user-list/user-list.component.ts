@@ -28,10 +28,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { SeoService } from '../../services/seo/seo';
+import { SeoService } from '../../services/seo/seo.service';
 import { UserService } from '../../services/user/user.service';
-import { User } from '../../models/user';
-import { SeoData } from '../../models/seo-data';
+import { User } from '../../models/user.interface';
+import { SeoData } from '../../models/seo-data.interface';
 
 
 @Component({
@@ -49,6 +49,12 @@ import { SeoData } from '../../models/seo-data';
   styleUrl: './user-list.component.css'
 })
 export class UserListComponent implements OnInit {
+  error(error: any) {
+    throw new Error('Method not implemented.');
+  }
+  load() {
+    throw new Error('Method not implemented.');
+  }
   private readonly route = inject(ActivatedRoute);
   private readonly seoService = inject(SeoService);
   private readonly userService = inject(UserService);

@@ -1,7 +1,25 @@
 // root/setup-jest.ts
-import { setupZoneTestEnv } from 'jest-preset-angular/setup-env/zone';
+import 'zone.js';
+import 'zone.js/testing';
+import { getTestBed } from '@angular/core/testing';
+import {
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting,
+} from '@angular/platform-browser-dynamic/testing';
 
-setupZoneTestEnv();
+// Initialize the Angular testing environment
+getTestBed().initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting(),
+);
+
+// Mock console methods to reduce noise in tests (optional)
+global.console = {
+  ...console,
+  warn: jest.fn(),
+  error: jest.fn(),
+};
+
 
 // Optional: Add custom matchers or configure global test settings
 // Example:

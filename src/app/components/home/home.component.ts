@@ -18,10 +18,10 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { SeoService } from '../../services/seo/seo';
-import { StructuredDataService } from '../../services/structured-data/structured-data';
-import { ConfigService } from '../../services/config/config';
-import { SeoData } from '../../models/seo-data';
+import { SeoService } from '../../services/seo/seo.service';
+import { StructuredDataService } from '../../services/structured-data/structured-data.service';
+import { ConfigService } from '../../services/config/config.service';
+import { SeoData } from '../../models/seo-data.interface';
 
 
 @Component({

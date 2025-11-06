@@ -23,9 +23,9 @@
 import { inject } from '@angular/core';
 import { ResolveFn } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { SeoData } from '../../models/seo-data';
+import { SeoData } from '../../models/seo-data.interface';
 import { UserService } from '../../services/user/user.service';
-import { ConfigService } from '../../services/config/config';
+import { ConfigService } from '../../services/config/config.service';
 
 
 export const userDetailSeoResolver: ResolveFn<SeoData> = (route) => {
